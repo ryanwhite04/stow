@@ -1,102 +1,60 @@
-" Comments in Vimscript start with a `"`.
 
-" If you open this file in Vim, it'll be syntax highlighted for you.
-
-" Vim is based on Vi. Setting `nocompatible` switches from the default
-" Vi-compatibility mode and enables useful Vim functionality. This
-" configuration option turns out not to be necessary for the file named
-" '~/.vimrc', because Vim automatically enters nocompatible mode if that file
-" is present. But we're including it here just in case this config file is
-" loaded some other way (e.g. saved as `foo`, and then Vim started with
-" `vim -u foo`).
-set nocompatible
-
-" Turn on syntax highlighting.
+hi CursorLine   cterm=NONE ctermbg=darkred ctermfg=white guibg=darkred guifg=white
+hi CursorColumn cterm=NONE ctermbg=darkred ctermfg=white guibg=darkred guifg=white
 syntax on
-
-" Disable the default Vim startup message.
-set shortmess+=I
-
-" Show line numbers.
-set number
-
-" This enables relative line numbering mode. With both number and
-" relativenumber enabled, the current line shows the true line number, while
-" all other lines (above and below) are numbered relative to the current line.
-" This is useful because you can tell, at a glance, what count is needed to
-" jump up or down to a particular line, by {count}k to go up or {count}j to go
-" down.
-set relativenumber
-
-" Always show the status line at the bottom, even if you only have one window open.
-set laststatus=2
-
-" The backspace key has slightly unintuitive behavior by default. For example,
-" by default, you can't backspace before the insertion point set with 'i'.
-" This configuration makes backspace behave more reasonably, in that you can
-" backspace over anything.
-set backspace=indent,eol,start
-
-" By default, Vim doesn't let you hide a buffer (i.e. have a buffer that isn't
-" shown in any window) that has unsaved changes. This is to prevent you from "
-" forgetting about unsaved changes and then quitting e.g. via `:qa!`. We find
-" hidden buffers helpful enough to disable this protection. See `:help hidden`
-" for more information on this.
-set hidden
-
-" This setting makes search case-insensitive when all characters in the string
-" being searched are lowercase. However, the search becomes case-sensitive if
-" it contains any capital letters. This makes searching more convenient.
-set ignorecase
-set smartcase
-
-" Enable searching as you type, rather than waiting till you press enter.
-set incsearch
-
-" Unbind some useless/annoying default key bindings.
-nmap Q <Nop> " 'Q' in normal mode enters Ex mode. You almost never want this.
-
-" Disable audible bell because it's annoying.
-set noerrorbells visualbell t_vb=
-
-" Enable mouse support. You should avoid relying on this too much, but it can
-" sometimes be convenient.
-set mouse+=a
-
-" Make tabs nice
-" from https://stackoverflow.com/questions/234564/tab-key-4-spaces-and-auto-indent-after-curly-braces-in-vim
 filetype plugin indent on
-" show existing tab with 4 spaces width
+set nocompatible
+set shortmess+=I
+set number
+set numberwidth=5
+set relativenumber
+set laststatus=2
+set backspace=2 " Backspace deletes like most programs in insert mode
+set hidden
+set nobackup
+set nowritebackup
+set noswapfile
+set history=50
+set ignorecase
+set ruler
+set smartcase
+set incsearch
+set noerrorbells visualbell t_vb=
+set mouse+=a
 set tabstop=4
-" when indenting with '>', use 4 spaces width
 set shiftwidth=4
-" On pressing tab, insert 4 spaces
 set expandtab
+set showcmd
+set path+=**
+set list listchars=tab:»·,trail:·,nbsp:·
+set wildmenu
+set textwidth=80
+set colorcolumn=+1
+set updatetime=300
 
-" SNIPPETS:
-"
-" # Read an empty HTML template and move cursor to title
-nnoremap \html :-1read $HOME/dotfiles/vim/skeleton.html<CR>6jwf>a
-
-" Try to prevent bad habits like using the arrow keys for movement. This is
-" not the only possible bad habit. For example, holding down the h/j/k/l keys
-" for movement, rather than using more efficient movement commands, is also a
-" bad habit. The former is enforceable through a .vimrc, while we don't know
-" how to prevent the latter.
-" Do this in normal mode...
+nmap Q <Nop> " 'Q' in normal mode enters Ex mode. You almost never want this.
+nnoremap <leader><leader> <C-^>
+nnoremap <Leader>c :set cursorline! cursorcolumn!<CR>
+nnoremap <leader>html :-1read $HOME/.vim/skeleton.html<CR>6jwf>a
+nnoremap <leader>ce :-1read $HOME/.vim/custom-element.js<CR>V%:s/custom-element/
+inoremap <C-j> <C-w>j
+inoremap <C-k> <C-w>k
+inoremap <C-h> <C-w>h
+inoremap <C-l> <C-w>l
+nnoremap <C-j> <C-w>j
+nnoremap <C-k> <C-w>k
+nnoremap <C-h> <C-w>h
+nnoremap <C-l> <C-w>l
 nnoremap <Left>  :echoe "Use h"<CR>
 nnoremap <Right> :echoe "Use l"<CR>
 nnoremap <Up>    :echoe "Use k"<CR>
 nnoremap <Down>  :echoe "Use j"<CR>
-" ...and in insert mode
 inoremap <Left>  <ESC>:echoe "Use h"<CR>
 inoremap <Right> <ESC>:echoe "Use l"<CR>
 inoremap <Up>    <ESC>:echoe "Use k"<CR>
 inoremap <Down>  <ESC>:echoe "Use j"<CR>
 
-" FILE BROWSING:
-
-" Tweaks for browsing
+let mapleader=" "
 let g:netrw_banner=0        " disable annoying banner
 let g:netrw_browse_split=4  " open in prior window
 let g:netrw_altv=1          " open splits to the right
@@ -104,36 +62,12 @@ let g:netrw_liststyle=3     " tree view
 let g:netrw_list_hide=netrw_gitignore#Hide()
 let g:netrw_list_hide.=',\(^\|\s\s\)\zs\.\S\+'
 
-" TAG JUMPING:
-
-" Create the `tags` file (may need to install ctags first)
 command! MakeTags !ctags -R .
-
-" NOW WE CAN:
-" - Use ^] to jump to tag under cursor
-" - Use g^] for ambiguous tags
-" - Use ^t to jump back up the tag stack
-
-" THINGS TO CONSIDER:
-" - This doesn't help if you want a visual list of tags
-
-
-" FINDING FILES:
-
-" Search down into subfolders
-" Provides tab-completion for all file-related tasks
-set path+=**
-
-" Display all matching files when we tab complete
-set wildmenu
-
-" NOW WE CAN:
-" - Hit tab to :find by partial match
-" - Use * to make it fuzzy
-
-" THINGS TO CONSIDER:
-" - :b lets you autocomplete any open buffer
 
 call plug#begin()
 Plug 'tomlion/vim-solidity'
+Plug 'yuezk/vim-js'
+Plug 'leafgarland/typescript-vim'
+Plug 'maxmellon/vim-jsx-pretty'
+Plug 'vim-syntastic/syntastic'
 call plug#end()

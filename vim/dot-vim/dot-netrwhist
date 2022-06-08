@@ -1,0 +1,12 @@
+let g:netrw_dirhistmax  =10
+let g:netrw_dirhistcnt =5
+let g:netrw_dirhist_5='/home/ryanwhite04/CITS/3403/chengyule/static'
+let g:netrw_dirhist_4='/home/ryanwhite04/CITS/3403/chengyule'
+let g:netrw_dirhist_3='/home/ryanwhite04/CITS/3403/chengyule/static'
+let g:netrw_dirhist_2='/home/ryanwhite04/CITS/3403/chengyule'
+let g:netrw_dirhist_1='/home/ryanwhite04/alex4lyf'
+let g:netrw_dirhist_0='/home/ryanwhite04/example/src'
+let g:netrw_dirhist_9='/home/ryanwhite04/example'
+let g:netrw_dirhist_8='/home/ryanwhite04/cryptopals_com/src'
+let g:netrw_dirhist_7='/home/ryanwhite04/cryptopals_com'
+let g:netrw_dirhist_6='/home/ryanwhite04/cryptopals_com/src'

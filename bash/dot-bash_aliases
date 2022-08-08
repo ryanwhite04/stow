@@ -8,4 +8,4 @@ export PS1="$TOP${debian_chroot:+($debian_chroot)}\[\033[01;32m\]$\[\033[00m\] "
 # export PS1="\[\033[01;34m\]\$\[\033[00m\] "
 export DENO_INSTALL="/home/ryanwhite04/.deno"
 export PATH="$DENO_INSTALL/bin:$PATH"
-
+alias mcc="cc -std=c11 -Wall -Werror"

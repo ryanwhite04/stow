@@ -1,0 +1,21 @@
+[38;5;246;03m# inotifywait[39;00m
+[38;5;246;03m# Waits for changes to one or more files.[39;00m
+[38;5;246;03m# More information: <https://manned.org/inotifywait>.[39;00m
+
+[38;5;246;03m# Run a command when a file changes:[39;00m
+[38;5;70;01mwhile[39;00m[38;5;252m [39m[38;5;252minotifywait[39m[38;5;252m [39m[38;5;252mpath/to/file[39m[38;5;252m;[39m[38;5;252m [39m[38;5;70;01mdo[39;00m[38;5;252m [39m[38;5;252mcommand[39m[38;5;252m;[39m[38;5;252m [39m[38;5;70;01mdone[39;00m
+
+[38;5;246;03m# Be quiet about watching for changes:[39;00m
+[38;5;70;01mwhile[39;00m[38;5;252m [39m[38;5;252minotifywait[39m[38;5;252m [39m[38;5;252m--quiet[39m[38;5;252m [39m[38;5;252mpath/to/file[39m[38;5;252m;[39m[38;5;252m [39m[38;5;70;01mdo[39;00m[38;5;252m [39m[38;5;252mcommand[39m[38;5;252m;[39m[38;5;252m [39m[38;5;70;01mdone[39;00m
+
+[38;5;246;03m# Watch a directory recursively for changes:[39;00m
+[38;5;70;01mwhile[39;00m[38;5;252m [39m[38;5;252minotifywait[39m[38;5;252m [39m[38;5;252m--recursive[39m[38;5;252m [39m[38;5;252mpath/to/directory[39m[38;5;252m;[39m[38;5;252m [39m[38;5;70;01mdo[39;00m[38;5;252m [39m[38;5;252mcommand[39m[38;5;252m;[39m[38;5;252m [39m[38;5;70;01mdone[39;00m
+
+[38;5;246;03m# Exclude files matching a regular expression:[39;00m
+[38;5;70;01mwhile[39;00m[38;5;252m [39m[38;5;252minotifywait[39m[38;5;252m [39m[38;5;252m--recursive[39m[38;5;252m [39m[38;5;252mpath/to/directory[39m[38;5;252m [39m[38;5;252m--exclude[39m[38;5;252m [39m[38;5;214m'regular_expression'[39m[38;5;252m;[39m[38;5;252m [39m[38;5;70;01mdo[39;00m[38;5;252m [39m[38;5;252mcommand[39m[38;5;252m;[39m[38;5;252m [39m[38;5;70;01mdone[39;00m
+
+[38;5;246;03m# Wait at most 30 seconds:[39;00m
+[38;5;70;01mwhile[39;00m[38;5;252m [39m[38;5;252minotifywait[39m[38;5;252m [39m[38;5;252m--timeout[39m[38;5;252m [39m[38;5;67m30[39m[38;5;252m [39m[38;5;252mpath/to/file[39m[38;5;252m;[39m[38;5;252m [39m[38;5;70;01mdo[39;00m[38;5;252m [39m[38;5;252mcommand[39m[38;5;252m;[39m[38;5;252m [39m[38;5;70;01mdone[39;00m
+
+[38;5;246;03m# Only watch for file modification events:[39;00m
+[38;5;70;01mwhile[39;00m[38;5;252m [39m[38;5;252minotifywait[39m[38;5;252m [39m[38;5;252m--event[39m[38;5;252m [39m[38;5;252mmodify[39m[38;5;252m [39m[38;5;252mpath/to/file[39m[38;5;252m;[39m[38;5;252m [39m[38;5;70;01mdo[39;00m[38;5;252m [39m[38;5;252mcommand[39m[38;5;252m;[39m[38;5;252m [39m[38;5;70;01mdone[39;00m

@@ -1,0 +1,1 @@
+echo "$PATH" | tr ':' '\n' # Show each PATH directory on separate line

@@ -1,0 +1,2 @@
+corepack enable # Enable yarn
+corepack prepare # Store package managers for offline access

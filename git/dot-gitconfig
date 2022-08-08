@@ -2,8 +2,6 @@
     email = ryanwhite04@gmail.com
     name = Ryan White
     username = ryanwhite04
-[credential "https://github.com"]
-    helper = !/usr/bin/gh auth git-credential
 [core]
     editor = vim
 [init]

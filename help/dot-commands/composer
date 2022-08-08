@@ -1,0 +1,27 @@
+[38;5;246;03m# composer[39;00m
+[38;5;246;03m# A package-based dependency manager for PHP projects.[39;00m
+[38;5;246;03m# More information: <https://getcomposer.org/>.[39;00m
+
+[38;5;246;03m# Interactively create a `composer.json` file:[39;00m
+[38;5;252mcomposer[39m[38;5;252m [39m[38;5;252minit[39m
+
+[38;5;246;03m# Add a package as a dependency for this project, adding it to `composer.json`:[39;00m
+[38;5;252mcomposer[39m[38;5;252m [39m[38;5;252mrequire[39m[38;5;252m [39m[38;5;252muser/package_name[39m
+
+[38;5;246;03m# Install all the dependencies in this project's `composer.json` and create `composer.lock`:[39;00m
+[38;5;252mcomposer[39m[38;5;252m [39m[38;5;252minstall[39m
+
+[38;5;246;03m# Uninstall a package from this project, removing it as a dependency from `composer.json`:[39;00m
+[38;5;252mcomposer[39m[38;5;252m [39m[38;5;252mremove[39m[38;5;252m [39m[38;5;252muser/package_name[39m
+
+[38;5;246;03m# Update all the dependencies in this project's `composer.json` and note versions in `composer.lock` file:[39;00m
+[38;5;252mcomposer[39m[38;5;252m [39m[38;5;252mupdate[39m
+
+[38;5;246;03m# Update composer lock only after updating `composer.json` manually:[39;00m
+[38;5;252mcomposer[39m[38;5;252m [39m[38;5;252mupdate[39m[38;5;252m [39m[38;5;252m--lock[39m
+
+[38;5;246;03m# Learn more about why a dependency can't be installed:[39;00m
+[38;5;252mcomposer[39m[38;5;252m [39m[38;5;252mwhy-not[39m[38;5;252m [39m[38;5;252muser/package_name[39m
+
+[38;5;246;03m# Update composer to its latest version:[39;00m
+[38;5;252mcomposer[39m[38;5;252m [39m[38;5;252mself-update[39m

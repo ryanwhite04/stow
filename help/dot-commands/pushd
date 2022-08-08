@@ -1,0 +1,20 @@
+[48;5;8m[24m cheat:pushd [24m[0m
+[38;5;246;03m# To pushes your current directory to the top of a stack while changing to the specified directory:[39;00m
+[38;5;31mpushd[39m[38;5;252m [39m[38;5;252m<[39m[38;5;252mdirectory>[39m
+
+[38;5;246;03m# To return use popd:[39;00m
+[38;5;31mpopd[39m
+
+[48;5;8m[24m tldr:pushd [24m[0m
+[38;5;246;03m# pushd[39;00m
+[38;5;246;03m# Place a directory on a stack so it can be accessed later.[39;00m
+[38;5;246;03m# See also `popd` to switch back to original directory and `dirs` to display directory stack contents.[39;00m
+
+[38;5;246;03m# Switch to directory and push it on the stack:[39;00m
+[38;5;31mpushd[39m[38;5;252m [39m[38;5;252mdirectory[39m
+
+[38;5;246;03m# Switch first and second directories on the stack:[39;00m
+[38;5;31mpushd[39m
+
+[38;5;246;03m# Rotate stack by making the 5th element the top of the stack:[39;00m
+[38;5;31mpushd[39m[38;5;252m [39m[38;5;252m+4[39m

@@ -1,0 +1,18 @@
+[48;5;8m[24m cheat:popd [24m[0m
+[38;5;246;03m# To return to the directory at the top of the `pushd' stack:[39;00m
+[38;5;31mpopd[39m
+
+[48;5;8m[24m tldr:popd [24m[0m
+[38;5;246;03m# popd[39;00m
+[38;5;246;03m# Remove a directory placed on the directory stack via the pushd shell built-in.[39;00m
+[38;5;246;03m# See also `pushd` to place a directory on the stack and `dirs` to display directory stack contents.[39;00m
+[38;5;246;03m# More information: <https://www.gnu.org/software/bash/manual/html_node/Directory-Stack-Builtins.html>.[39;00m
+
+[38;5;246;03m# Remove the top directory from the stack and cd to it:[39;00m
+[38;5;31mpopd[39m
+
+[38;5;246;03m# Remove the Nth directory (starting from zero to the left from the list printed with `dirs`):[39;00m
+[38;5;31mpopd[39m[38;5;252m [39m[38;5;252m+N[39m
+
+[38;5;246;03m# Remove the Nth directory (starting from zero to the right from the list printed with `dirs`):[39;00m
+[38;5;31mpopd[39m[38;5;252m [39m[38;5;252m-N[39m

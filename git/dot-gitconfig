@@ -8,3 +8,5 @@
     editor = vim
 [init]
     defaultBranch = main
+[credential]
+	helper = cache

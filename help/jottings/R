@@ -1,0 +1,1 @@
+sudo usermod -a -G $USER # Allow installation into directory "/usr/local/lib/R/site-library"

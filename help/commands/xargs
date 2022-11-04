@@ -1,0 +1,1 @@
+ls ~/.files/help/commands | xargs cat # List all commands saved in help

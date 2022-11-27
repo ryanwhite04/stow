@@ -1,11 +1,17 @@
+# [Generate new SSH key](https://docs.github.com/en/authentication/connecting-to-github-with-ssh)
+
+```sh
+ssh-keygen -t ed25519 -C "your_email@example.com"
+ssh-add ~/.ssh/id_ed25519
+```
+
+# Install dotfiles
+```sh
+sudo apt update && sudo apt
 cd ~
-git clone https://github.com/ryanwhite04/dot-files.git .files
-cd .files
-ls # show things that can be installed
-sudo apt install stow neovum tmux
-stow --dotfiles stow # to install stow configuration
-stow --dotfiles bash # for bash configuration
-stow --dotfiles help # to copy stuff I want to remember
-stow --dotfiles nvim # for nvim configuration
-stow --dotfiles tmux # tmux configuration
-stow --dotfiles stow bash help nvim tmux # all at once
+git clone git:github.com:ryanwhite04/dotfiles
+cd dotfiles
+cat installs/* | sh # install required packages
+stow */ # stow all configuration files
+```
+

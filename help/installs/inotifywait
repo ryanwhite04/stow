@@ -1,1 +1,1 @@
-sudo apt install inotify-tools
+sudo apt install -y inotify-tools

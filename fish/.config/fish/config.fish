@@ -1,25 +1,35 @@
-function sudo --description "Replacement for Bash 'sudo !!' command to run last command using sudo."
-    if test "$argv" = !!
-    eval command sudo $history[1]
-else
-    command sudo $argv
-    end
-end
+# XDG
+set -gx XDG_CONFIG_HOME $HOME/.config
+set -gx XDG_DATA_HOME $HOME/.local/share
+set -gx XDG_CACHE_HOME $HOME/.cache
 
-function bide
-    argparse 'f/files=' 'c/command=' -- $argv
-    clear;
-    echo "Waiting on $_flag_f";
-    while inotifywait $_flag_f;
-        clear;
-        echo "Running $_flag_c";
-        eval $_flag_c;
-        echo "Waiting on $_flag_f";
-    end
-end
+# Deno
+set -gx DENO_INSTALL $XDG_DATA_HOME/deno
+set -gx PATH $DENO_INSTALL/bin $PATH # deno-env
 
-function load
-    set path "$__fish_config_dir/config.fish"
-    echo "Sourcing $path"
-    source $path
+# Docker
+set -gx DOCKER_CONFIG $XDG_CONFIG_HOME/docker
+
+# SageMath
+set -gx DOT_SAGE $XDG_CONFIG_HOME/sage
+
+ # Go
+set -gx GOPATH $XDG_DATA_HOME/go
+set -gx GOBIN $GOPATH/bin
+set -gx PATH $GOBIN $PATH # go-env
+
+#R
+set -gx R_USER $XDG_DATA_HOME/R
+
+# GHCup is a tool for installing and managing Haskell compilers
+set -gx GHCUP_INSTALL_BASE_PREFIX $XDG_DATA_HOME
+set -gx PATH $GHCUP_INSTALL_BASE_PREFIX/cabal/bin $PATH # cabal-env
+set -gx PATH $GHCUP_INSTALL_BASE_PREFIX/ghcup/bin $PATH # ghcup-env
+
+# Conda
+# >>> conda initialize >>>
+# !! Contents within this block are managed by 'conda init' !!
+if test -f $XDG_DATA_HOME/anaconda3/bin/conda
+    eval $XDG_DATA_HOME/anaconda3/bin/conda "shell.fish" "hook" $argv | source
 end
+# <<< conda initialize <<<
